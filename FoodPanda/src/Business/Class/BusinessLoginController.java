@@ -36,5 +36,10 @@ public class BusinessLoginController {
     public void toSignUpnWithEmailHandler(ActionEvent event) throws IOException{
         SwitchScene.switchScene(event, "/Business/FXML/BusinessSignUp.fxml");
     }
+
+    @FXML
+    public void toReturntoLandingPageHandler(ActionEvent event) throws IOException{
+        SwitchScene.switchScene(event, "/LandingPage.fxml");
+    }
 }
 

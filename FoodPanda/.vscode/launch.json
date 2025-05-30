@@ -6,6 +6,15 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "FoodPanda_56a60548",
+            "vmArgs": "--module-path C:\\javafx-sdk-21.0.6\\lib --add-modules javafx.controls,javafx.fxml"
+            
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
