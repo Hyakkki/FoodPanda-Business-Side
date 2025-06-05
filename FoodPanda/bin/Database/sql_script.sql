@@ -266,7 +266,49 @@ VALUES
 DELETE FROM restaurant
 WHERE restaurant_ID = 'RS011';
     
-
-
+SELECT * FROM product;
+SELECT * FROM price_range;
     
+05/26/2025
+-- creates business_owner table (tristan 05/26/2025)
+CREATE TABLE business_owner (
+    business_owner_ID VARCHAR(15) PRIMARY KEY,
+    restaurant_ID VARCHAR(15) NOT NULL,
+    owner_first_name VARCHAR(30) NOT NULL,
+    owner_last_name VARCHAR(30) NOT NULL,
+    owner_email VARCHAR(100) UNIQUE NOT NULL,
+    owner_password VARCHAR(30) NOT NULL,
     
+    FOREIGN KEY (restaurant_ID)
+    REFERENCES restaurant(restaurant_ID)
+    ON DELETE CASCADE
+);
+
+SELECT * FROM business_owner;
+
+INSERT INTO business_owner (business_owner_ID, restaurant_ID, owner_first_name, owner_last_name, owner_email, owner_password)
+VALUES 
+	('BO001', 'R001', 'Juan', 'Dela Cruz', 'juandelacruz@email.com', 'jdc123');
+
+-- alter product (tristan 06/05/2025)
+ALTER TABLE product
+ADD product_description VARCHAR(500),
+ADD product_image_path TEXT NOT NULL;
+
+SELECT * FROM product;
+
+ALTER TABLE product
+DROP COLUMN product_description,
+DROP COLUMN product_image_path;
+
+UPDATE product
+SET product_description = 'Juicy burger patty with savory mushroom gravy and rice.'
+WHERE product_ID = 'P00001';
+
+UPDATE product
+SET product_description = 'Sweet Filipino-style spaghetti with sliced hotdogs and cheese.'
+WHERE product_ID = 'P00002';
+
+UPDATE product
+SET product_description = 'Crispy fried chicken served with rice and gravy.'
+WHERE product_ID = 'P00003';

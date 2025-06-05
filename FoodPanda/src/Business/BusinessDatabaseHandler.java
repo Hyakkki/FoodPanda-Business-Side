@@ -288,5 +288,58 @@ public class BusinessDatabaseHandler {
             return false;
         }
     }
+
+    // Insert product into the database
+    public static boolean insertProduct(String productID, String restaurantID, String priceRangeID, String productName, int productQuantity, double productPrice, String productDescription, String productImagePath) {
+    String query = "INSERT INTO product " + "(product_ID, restaurant_ID, price_range_ID, product_name, product_quantity, product_price, product_description, product_image_path) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    try (Connection conn = getDBConnection();
+         PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+        pstmt.setString(1, productID);
+        pstmt.setString(2, restaurantID);
+        pstmt.setString(3, priceRangeID);
+        pstmt.setString(4, productName);
+        pstmt.setInt(5, productQuantity);
+        pstmt.setDouble(6, productPrice);
+        pstmt.setString(7, productDescription);
+        pstmt.setString(8, productImagePath);
+
+        return pstmt.executeUpdate() > 0;
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+
+    // Generate a unique product ID
+    public static String generateProductID() {
+    String prefix = "P";
+    String query = "SELECT product_ID FROM product WHERE product_ID LIKE ? ORDER BY product_ID DESC LIMIT 1";
+
+    try (Connection conn = getDBConnection();
+         PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+        pstmt.setString(1, prefix + "%");
+        ResultSet rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            String lastID = rs.getString("product_ID"); // e.g. P00001
+            int num = Integer.parseInt(lastID.substring(prefix.length())); // parse number part
+            num++; // increment
+            return String.format("%s%05d", prefix, num); // e.g. P00002
+        } else {
+            return prefix + "00001"; // first ID if none exist
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return null;
+    }
+}
+    
+
 }
 

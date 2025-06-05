@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Business.Class.BusinessAddProductController">
@@ -14,12 +15,29 @@
             <Image url="@../../User%20Interface/Business%20AddProduct.png" />
          </image>
       </ImageView>
-      <TextField fx:id="productnametextf" layoutX="24.0" layoutY="325.0" prefHeight="26.0" prefWidth="293.0" style="-fx-background-color: transparent;" />
-      <TextField fx:id="productdesctextf" layoutX="23.0" layoutY="386.0" prefHeight="69.0" prefWidth="294.0" style="-fx-background-color: transparent;" />
-      <TextField fx:id="productpricetextf" layoutX="23.0" layoutY="488.0" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: transparent;" />
-      <TextField fx:id="productquantitytextf" layoutX="176.0" layoutY="488.0" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: transparent;" />
+      <TextField fx:id="productnametextf" layoutX="24.0" layoutY="325.0" prefHeight="26.0" prefWidth="293.0" style="-fx-background-color: transparent;">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="productdesctextf" alignment="TOP_LEFT" layoutX="23.0" layoutY="386.0" prefHeight="70.0" prefWidth="294.0" style="-fx-background-color: transparent;">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="productpricetextf" layoutX="23.0" layoutY="488.0" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: transparent;">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="productquantitytextf" layoutX="176.0" layoutY="488.0" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: transparent;">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </TextField>
       <Button fx:id="uploadbtn" layoutX="230.0" layoutY="95.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: transparent;" />
-      <ImageView fx:id="productimageview" fitHeight="158.0" fitWidth="294.0" layoutX="24.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="productimageview" fitHeight="160.0" fitWidth="300.0" layoutX="20.0" layoutY="123.0" nodeOrientation="INHERIT" pickOnBounds="true" />
       <Button fx:id="saveuploadbtn" layoutX="23.0" layoutY="683.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="294.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="addreturnbtn" layoutX="12.0" layoutY="13.0" mnemonicParsing="false" onAction="#toReturntoHomePageAddHandler" prefHeight="34.0" prefWidth="33.0" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>
